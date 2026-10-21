@@ -1,0 +1,25 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    user: root
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
+      - MSSQL_PID=${MSSQL_PID:-Developer}
+    ports:
+      - "${MSSQL_PORT:-1433}:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql/data
+      - sqlserver_log:/var/opt/mssql/log
+      - sqlserver_secrets:/var/opt/mssql/secrets
+      - ./backup:/var/opt/mssql/backup
+
+volumes:
+  sqlserver_data:
+    driver: local
+  sqlserver_log:
+    driver: local
+  sqlserver_secrets:
+    driver: local
