@@ -15,10 +15,7 @@ Can be ran/accessed locally or via network.
 | **Authentication** | **SQL Server Authentication** |
 | **Login** | `sa` |
 | **Password** | *(value in `.env`)* |
-
-Enable **trust server certificate** in the connection properties tab.
-
---
+| **Trust Server Certificate** | Yes |
 
 ## 2. Directory Structure
 ```text
@@ -33,7 +30,6 @@ Enable **trust server certificate** in the connection properties tab.
 ---
 
 ## 3. Managing the Server
-Run these commands from `/Projects/server`:
 
 ### Start the Server
 ```bash
